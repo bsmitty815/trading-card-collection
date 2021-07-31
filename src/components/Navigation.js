@@ -1,23 +1,24 @@
-import { navLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Button } from 'semantic-ui-react'
 
 
 function Navigation() {
 
     
     return (
-      <div className="App">
-        <navLink to="/Cards">
+      <div className="App" >
+        <NavLink to="/Cards">
                 <span>
-                  <button>Cards</button>
+                    <Button color='orange' className="ui orange button">Cards</Button>
                 </span>
-        </navLink>
-        <navLink to="/Form">
+        </NavLink>
+        <NavLink to="/SubmitForm">
                 <span>
-                  <button>Form</button>
+                    <Button color='orange' className="ui orange button">Form</Button>
                 </span>
-        </navLink>
+        </NavLink>
       </div>
     );
   }
   
-  export default Navigation;
+export default Navigation;
