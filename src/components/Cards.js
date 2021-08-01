@@ -15,9 +15,7 @@ function Cards() {
 
     }, [])
 
-    // const cardDisplay = cardsData.map((card) => 
-    //     image={card.image} {card.name}
-    // )
+
 
 
     
