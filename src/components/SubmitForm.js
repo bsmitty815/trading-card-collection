@@ -76,8 +76,8 @@ function SubmitForm() {
           <label ><span>Description <span className="required">*</span></span><input onChange={handleChange} type="text" className="input-field" name="description"/></label>
           <label ><span>Collection <span className="required">*</span></span><select onChange={handleCollectionChange} value={collectionCategory} name="collection" className="select-field">
           <option value="Pokemon" name="Pokemon">Pokemon</option>
-          <option value="Soccer" name="Baseball">Soccer</option>
-          <option value="Soccer" name="Basketball">Soccer</option>
+          <option value="Baseball" name="Baseball">Baseball</option>
+          <option value="Basketball" name="Basketball">Basketball</option>
           <option value="Hockey" name ="Hockey">Hockey</option>
           <option value="Soccer" name="Soccer">Soccer</option>
           </select></label>
