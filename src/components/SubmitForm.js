@@ -3,31 +3,24 @@ import { useEffect, useState } from 'react';
 
 
 function SubmitForm() {
-  // const [collectionNames, setCollectionsName] = useState([])
-  // console.log(collectionNames)
-  const [collectionCategory, setCollectionCategory] = useState("Pokemon")
-  console.log(collectionCategory)
+
+  const [collectionCategory, setCollectionCategory] = useState("Basketball")
+  const [collectionNames, setCollectionNames] = useState([])
   const defaultForm = {
     name: "",
     image: "",
     year: "",
     description: ""
-    //collection: collectionCategory
   }
   const [formData, setFormData] = useState(defaultForm)
-  //const [collectionCategory, setCollectionCategory] = useState("Pokemon")
-  console.log(collectionCategory)
-  console.log(formData)
+  console.log(collectionCategory, "collection category")
+  console.log(formData, "form data")
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9393/cards")
-  //   .then(response => response.json())
-  //   .then(data => setCollectionsName(data.cards))
-  // }, [])
-
-  // const allCardTypesArray = collectionNames.map((card) => card.collection).map((collection) => collection.card_type)
-  // //const allCardTypes = allCardTypesArray.forEach()
-  // console.log(allCardTypesArray)
+  useEffect(() => {
+    fetch("http://localhost:9393/cards")
+    .then(response => response.json())
+    .then(data => fillCollectionNamesData(data.collections))
+  }, [])
 
   function handleChange(event) {
     setFormData({
@@ -62,6 +55,22 @@ function SubmitForm() {
     setFormData(defaultForm)
   }
 
+  function fillCollectionNamesData(data){ // get the collections
+    const multipleNamesArray = data.map(element => element.card_type)
+    multipleNamesArray.sort()
+    setCollectionNames(multipleNamesArray)
+  }
+
+  console.log(collectionNames)
+  const optionsDisplay = collectionNames.map((collection_type) => {
+    console.log(collection_type)
+    return <option value={collection_type} name={collection_type}>{collection_type}</option>
+  })
+
+  // console.log(collectionNames)
+  // const optionsDisplay = collectionNames.forEach(collection_type => collection_type)
+
+ //<option value={optionsDisplay} name={optionsDisplay}>{optionsDisplay}</option>
 
 
     
@@ -75,11 +84,13 @@ function SubmitForm() {
           <label ><span>Year <span className="required">*</span></span><input onChange={handleChange} type="text" className="input-field" name="year"/></label>
           <label ><span>Description <span className="required">*</span></span><input onChange={handleChange} type="text" className="input-field" name="description"/></label>
           <label ><span>Collection <span className="required">*</span></span><select onChange={handleCollectionChange} value={collectionCategory} name="collection" className="select-field">
-          <option value="Pokemon" name="Pokemon">Pokemon</option>
+          {/*<option value="Pokemon" name="Pokemon">Pokemon</option>
           <option value="Baseball" name="Baseball">Baseball</option>
           <option value="Basketball" name="Basketball">Basketball</option>
           <option value="Hockey" name ="Hockey">Hockey</option>
-          <option value="Soccer" name="Soccer">Soccer</option>
+    <option value="Soccer" name="Soccer">Soccer</option>*/}
+          {optionsDisplay}
+
           </select></label>
 
           <label><span> </span><button>Submit</button></label>
