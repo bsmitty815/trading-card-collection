@@ -13,8 +13,7 @@ function SubmitForm() {
     description: ""
   }
   const [formData, setFormData] = useState(defaultForm)
-  console.log(collectionCategory, "collection category")
-  console.log(formData, "form data")
+
 
   useEffect(() => {
     fetch("http://localhost:9393/cards")
@@ -61,16 +60,11 @@ function SubmitForm() {
     setCollectionNames(multipleNamesArray)
   }
 
-  console.log(collectionNames)
-  const optionsDisplay = collectionNames.map((collection_type) => {
-    console.log(collection_type)
-    return <option value={collection_type} name={collection_type}>{collection_type}</option>
+
+  const optionsDisplay = collectionNames.map((collection_type) => { //creating options for the collection names
+    return <option key={collection_type} value={collection_type} name={collection_type}>{collection_type}</option>
   })
 
-  // console.log(collectionNames)
-  // const optionsDisplay = collectionNames.forEach(collection_type => collection_type)
-
- //<option value={optionsDisplay} name={optionsDisplay}>{optionsDisplay}</option>
 
 
     
@@ -88,7 +82,7 @@ function SubmitForm() {
           <option value="Baseball" name="Baseball">Baseball</option>
           <option value="Basketball" name="Basketball">Basketball</option>
           <option value="Hockey" name ="Hockey">Hockey</option>
-    <option value="Soccer" name="Soccer">Soccer</option>*/}
+          <option value="Soccer" name="Soccer">Soccer</option>*/}
           {optionsDisplay}
 
           </select></label>

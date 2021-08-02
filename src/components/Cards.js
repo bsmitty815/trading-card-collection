@@ -3,11 +3,9 @@ import Search from "./Search"
 import { useState, useEffect } from "react";
 
 function Cards() {
-    // possibly but the sort on this page
     const [cardsData, setCardsData] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
-    console.log(searchTerm)
     useEffect(() => {
         fetch("http://localhost:9393/cards")
         .then(response => response.json())
