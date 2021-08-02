@@ -17,7 +17,7 @@ function Card({cardsData, handleDeleteCard, searchTerm}) {
 
     }
     //filter through card names in cards data state
-    const filteredCardsData = cardsData.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredCardsData = cardsData.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()) || card.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
 
     const cardDisplay = filteredCardsData.map((card) => {
