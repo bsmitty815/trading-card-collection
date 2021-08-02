@@ -15,7 +15,7 @@ Follow these instructions to install your own copy on your computer
 2. Then click the green button on the top right
 3. Copy the SSH link
 4. Open up your terminal on your computer
-5. Type `git clone` and press enter
+5. Type `git clone` plus SSH copied link and press enter
 6. type `cd trading-card-collection` and press enter
 7. type `npm start` in the terminal to get your the app server up and running
 
