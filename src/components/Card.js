@@ -31,7 +31,7 @@ function Card({cardsData, handleDeleteCard, searchTerm, sortValue, handleEditted
     const filteredCardsData = sortedCardsData.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()) || card.description.toLowerCase().includes(searchTerm.toLowerCase()) || card.collection.toLowerCase().includes(searchTerm.toLowerCase()))
 
     function showEditCard(e) {
-      console.log(e)
+      //console.log(e)
       setShowEdit((showEdit) => !showEdit)
     }
 

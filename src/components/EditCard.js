@@ -24,17 +24,23 @@ function EditCard({card, handleEdittedCard}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        //patch request
-        const cardId = id
-        fetch("http://localhost:9393/cards", {
+
+        console.log("id fetch", cardDataUpdated.id)
+        fetch(`http://localhost:9393/cards/${cardDataUpdated.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.strgingify({cardDataUpdated}),
+            body: JSON.stringify({
+                id: cardDataUpdated.id,
+                name: cardDataUpdated.name,
+                image: cardDataUpdated.image,
+                year: cardDataUpdated.year,
+                description: cardDataUpdated.description
+            }),
         })
-        .then(response => response.json)
-        .then(newCardData => handleEdittedCard(newCardData))
+        .then((response) => response.json())
+        .then((newCardData) => handleEdittedCard(newCardData.card))
     }
     
     

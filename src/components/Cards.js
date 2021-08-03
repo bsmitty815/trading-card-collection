@@ -32,14 +32,13 @@ function Cards() {
     }
 
     function handleEdittedCard(newCardData) {
-      const updatedCardsArray = cardsData.map((card) => {
-        if (card.id === newCardData.id) {
-          return newCardData
-        } else {
-          return cardsData
-        }
+      const cardId = parseInt(newCardData.id)
+      const filteredCards = cardsData.filter((card) => {
+        return card.id !== cardId
       })
-      setCardsData(updatedCardsArray)
+      const allCardsUpdated = [...filteredCards, newCardData]
+      setCardsData(allCardsUpdated)
+    
     }
 
     
