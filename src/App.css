@@ -115,3 +115,40 @@
 	text-shadow: 0 0 0 firebrick;
 	cursor: pointer;
   }
+
+
+
+/* drop down menus */
+  select {
+	appearance: none;
+	outline: 0;
+	background: white;
+	background-image: none;
+	width: 150px;
+	height: 38px;
+	color: rgba(255, 136, 0, 0.925);
+	cursor: pointer;
+	border:1px solid rgb(218, 212, 212);
+	border-radius:3px;
+	padding-right: 10px;
+	font-size: 25px;
+	border-radius: 18px;
+}
+.select {
+	position: relative;
+	display: block;
+	width: 15em;
+	height: 2em;
+	line-height: 3;
+	overflow: hidden;
+	border-radius: .25em;
+	padding-bottom:10px;
+} 
+
+
+
+
+
+
+
+
