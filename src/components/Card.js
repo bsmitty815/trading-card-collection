@@ -18,13 +18,14 @@ function Card({cardsData, handleDeleteCard, searchTerm, sortValue}) {
     }
     //filter through card names in cards data state
     const sortedCardsData = cardsData.filter((card) => {
-      if (searchTerm === "" && sortValue === "All") {
+      if (sortValue === "All") {
         return cardsData
       } else {
         return card.collection === sortValue
       }
     })
 
+    //filter search bar
     const filteredCardsData = sortedCardsData.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()) || card.description.toLowerCase().includes(searchTerm.toLowerCase()) || card.collection.toLowerCase().includes(searchTerm.toLowerCase()))
 
 
