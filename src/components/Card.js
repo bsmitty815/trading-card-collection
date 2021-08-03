@@ -3,7 +3,7 @@ import {useState} from "react"
 import EditCard from "./EditCard"
 
 
-function Card({cardsData, handleDeleteCard, searchTerm, sortValue}) {
+function Card({cardsData, handleDeleteCard, searchTerm, sortValue, handleEdittedCard}) {
   const [showEdit, setShowEdit] = useState(false)
   console.log(showEdit)
     function handleDeleteClick(event){
@@ -42,7 +42,7 @@ function Card({cardsData, handleDeleteCard, searchTerm, sortValue}) {
         <p><b>Description: </b>{card.description}</p>
         <p><button id={card.id} onClick={handleDeleteClick} className="emoji-button delete" >🗑</button></p>
         <button id={card.id} onClick={(e) => showEditCard(e)}>Edit</button>
-        {showEdit === true ? <EditCard card={card} /> : "" }
+        {showEdit === true ? <EditCard card={card} handleEdittedCard={handleEdittedCard} /> : "" }
         </div>
     })
 

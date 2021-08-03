@@ -31,13 +31,23 @@ function Cards() {
       setSortValue(e.target.value)
     }
 
+    function handleEdittedCard(newCardData) {
+      const updatedCardsArray = cardsData.map((card) => {
+        if (card.id === newCardData.id) {
+          return newCardData
+        } else {
+          return cardsData
+        }
+      })
+      setCardsData(updatedCardsArray)
+    }
 
     
     return (
       <div>
           <p></p>
           <Search searchTerm={searchTerm} handleSearchChange={handleSearchChange} sortValue={sortValue} handleSortChange={handleSortChange} />
-          <Card searchTerm={searchTerm} cardsData={cardsData} handleDeleteCard={handleDeleteCard} sortValue={sortValue} />
+          <Card searchTerm={searchTerm} cardsData={cardsData} handleDeleteCard={handleDeleteCard} sortValue={sortValue} handleEdittedCard={handleEdittedCard} />
 
       </div>
     );
