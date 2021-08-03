@@ -36,4 +36,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 # Resources
-This application was built using React, HTML, CSS, and JavaScript
+This application was built using React, HTML, CSS, JavaScript, and Semantic UI React
