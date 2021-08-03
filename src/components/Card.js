@@ -2,7 +2,7 @@
 
 
 
-function Card({cardsData, handleDeleteCard, searchTerm}) {
+function Card({cardsData, handleDeleteCard, searchTerm, sortValue}) {
 
     function handleDeleteClick(event){
       const id = event.target.id
@@ -17,7 +17,15 @@ function Card({cardsData, handleDeleteCard, searchTerm}) {
 
     }
     //filter through card names in cards data state
-    const filteredCardsData = cardsData.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()) || card.description.toLowerCase().includes(searchTerm.toLowerCase()) || card.collection.toLowerCase().includes(searchTerm.toLowerCase()))
+    const sortedCardsData = cardsData.filter((card) => {
+      if (searchTerm === "" && sortValue === "All") {
+        return cardsData
+      } else {
+        return card.collection === sortValue
+      }
+    })
+
+    const filteredCardsData = sortedCardsData.filter(card => card.name.toLowerCase().includes(searchTerm.toLowerCase()) || card.description.toLowerCase().includes(searchTerm.toLowerCase()) || card.collection.toLowerCase().includes(searchTerm.toLowerCase()))
 
 
     const cardDisplay = filteredCardsData.map((card) => {

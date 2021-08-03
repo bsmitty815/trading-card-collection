@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function Cards() {
     const [cardsData, setCardsData] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
+    const [sortValue, setSortValue] = useState("All")
 
     useEffect(() => {
         fetch("http://localhost:9393/cards")
@@ -26,13 +27,17 @@ function Cards() {
       setSearchTerm(e.target.value)
     }
 
+    function handleSortChange(e) {
+      setSortValue(e.target.value)
+    }
+
 
     
     return (
       <div>
           <p></p>
-          <Search searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
-          <Card searchTerm={searchTerm} cardsData={cardsData} handleDeleteCard={handleDeleteCard} />
+          <Search searchTerm={searchTerm} handleSearchChange={handleSearchChange} sortValue={sortValue} handleSortChange={handleSortChange} />
+          <Card searchTerm={searchTerm} cardsData={cardsData} handleDeleteCard={handleDeleteCard} sortValue={sortValue} />
 
       </div>
     );
