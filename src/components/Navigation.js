@@ -7,7 +7,7 @@ function Navigation() {
     
     return (
       <div className="App" >
-        <NavLink to="/Cards">
+        <NavLink to="/CardsHolder">
                 <span>
                     <Button color='orange' className="ui orange button">Cards</Button>
                 </span>

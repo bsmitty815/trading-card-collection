@@ -1,6 +1,6 @@
 import Header from "./components/Header"
 import Navigation from "./components/Navigation"
-import Cards from "./components/Cards"
+import CardsHolder from "./components/CardsHolder"
 import SubmitForm from "./components/SubmitForm"
 import { Route, Switch } from "react-router-dom";
 import './App.css';
@@ -14,11 +14,15 @@ function App() {
       <Header />
       <Navigation />
       <Switch>
-        <Route path="/Cards" >
-          <Cards />
-        </Route>
-        <Route exactPath="/SubmitForm" >
+
+        <Route path="/SubmitForm" >
           <SubmitForm />
+        </Route>
+        <Route path="/CardsHolders" >
+          <CardsHolder />
+        </Route>
+        <Route path="/">
+          <CardsHolder />
         </Route>
       </Switch>
 

@@ -2,7 +2,7 @@
 import {useState} from "react"
 
 function EditCard({card, handleEdittedCard}) {
-    const {id, image, name, year, description} = card
+    const {id, image, name, year, description, collection} = card
 
     const [defaultData, setDefaultData] = useState({
         id: id,
@@ -13,7 +13,6 @@ function EditCard({card, handleEdittedCard}) {
       })
 
     const [cardDataUpdated, setCardDataUpdated] = useState(defaultData)
-    console.log(cardDataUpdated)
 
     function handleChange(event) {
         setCardDataUpdated({
@@ -24,8 +23,6 @@ function EditCard({card, handleEdittedCard}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-
-        console.log("id fetch", cardDataUpdated.id)
         fetch(`http://localhost:9393/cards/${cardDataUpdated.id}`, {
             method: "PATCH",
             headers: {
@@ -40,7 +37,7 @@ function EditCard({card, handleEdittedCard}) {
             }),
         })
         .then((response) => response.json())
-        .then((newCardData) => handleEdittedCard(newCardData.card))
+        .then((newCardData) =>  handleEdittedCard(newCardData.card, collection))
     }
     
     
