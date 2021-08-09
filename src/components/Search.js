@@ -6,6 +6,8 @@ import { useState, useEffect} from "react"
 function Search({searchTerm, handleSearchChange, sortValue, handleSortChange}) {
   const [collectionNames, setCollectionNames] = useState([])
 
+
+  //fetch for collection names
   useEffect(() => {
     fetch("http://localhost:9393/cards")
     .then(response => response.json())

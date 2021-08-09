@@ -20,6 +20,7 @@ function Cards({cardsData, handleDeleteCard, searchTerm, sortValue, handleEditte
 
 
 
+    //passing through the information to the individual card component and making a component for each card
     const cardDisplay = filteredCardsData.map((card) => {
         return <div key={card.id}><IndividualCard key={card.id} {...card} card={card} handleDeleteCard={handleDeleteCard} handleEdittedCard={handleEdittedCard} /></div> // ...card this passes through the attributes each key value pair
     })

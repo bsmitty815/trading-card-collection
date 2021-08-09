@@ -1,7 +1,7 @@
 
 import {useState} from "react"
 
-function EditCard({card, handleEdittedCard}) {
+function EditCard({card, handleEdittedCard, showEditCard}) {
     const {id, image, name, year, description, collection} = card
 
     const [defaultData, setDefaultData] = useState({
@@ -38,6 +38,9 @@ function EditCard({card, handleEdittedCard}) {
         })
         .then((response) => response.json())
         .then((newCardData) =>  handleEdittedCard(newCardData.card, collection))
+
+        showEditCard()
+        
     }
     
     

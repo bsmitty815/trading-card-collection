@@ -7,8 +7,9 @@ function CardsHolder() {
     const [searchTerm, setSearchTerm] = useState("")
     const [sortValue, setSortValue] = useState("All")
 
-    console.log(cardsData)
+    
 
+    //initial fetch
     useEffect(() => {
         fetch("http://localhost:9393/cards")
         .then(response => response.json())
@@ -18,6 +19,7 @@ function CardsHolder() {
 
 
 
+    //delete card then update state
     function handleDeleteCard(id) {
       const idInt = parseInt(id)
       const updatedCardDataArray = cardsData.filter((card) => {
@@ -26,14 +28,17 @@ function CardsHolder() {
       setCardsData(updatedCardDataArray)
     }
 
+    //search state update
     const handleSearchChange = (e) => {
       setSearchTerm(e.target.value)
     }
 
+    //sort/filter state update
     function handleSortChange(e) {
       setSortValue(e.target.value)
     }
 
+    //after the card has been edited we update the cardsData state
     function handleEdittedCard(newCardData, cardCollection) {
       const cardId = parseInt(newCardData.id)
       const filteredCards = cardsData.filter((card) => {

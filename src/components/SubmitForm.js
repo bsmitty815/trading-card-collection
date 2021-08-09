@@ -1,9 +1,10 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
+import { useHistory } from 'react-router-dom'
 
 
 function SubmitForm() {
-
+  const history = useHistory()
   const [collectionCategory, setCollectionCategory] = useState("Basketball")
   const [collectionNames, setCollectionNames] = useState([])
   const defaultForm = {
@@ -15,12 +16,14 @@ function SubmitForm() {
   const [formData, setFormData] = useState(defaultForm)
 
 
+  //use fetch to get collection names
   useEffect(() => {
     fetch("http://localhost:9393/cards")
     .then(response => response.json())
     .then(data => fillCollectionNamesData(data.collections))
   }, [])
 
+  //getting the input vallue to update formData
   function handleChange(event) {
     setFormData({
       ...formData,
@@ -28,10 +31,13 @@ function SubmitForm() {
     })
   }
 
+  //updating the collection drop down
   function handleCollectionChange(event) {
     setCollectionCategory(event.target.value)
   }
 
+
+  //handling the submitted information to update the data in the backend and then calling to update state
   function handleSubmit(event) {
     event.preventDefault()
 
@@ -52,6 +58,7 @@ function SubmitForm() {
     .then(r => r.json())
     .then(data => console.log(data))
     setFormData(defaultForm)
+    history.push('/')
   }
 
   function fillCollectionNamesData(data){ // get the collections

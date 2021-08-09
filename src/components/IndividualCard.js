@@ -7,14 +7,16 @@ function IndividualCard({id, image, name, year, description, handleDeleteCard, h
     const [showEdit, setShowEdit] = useState(false)
 
 
+    //show/hide edit card display
     function showEditCard() {
-        //console.log(e)
         setShowEdit((showEdit) => !showEdit)
     }
 
+
+    //deleting the cards
     function handleDeleteClick(event){
     const id = event.target.id
-    
+
     fetch(`http://localhost:9393/cards/${id}`, {
         method: "DELETE",
     }) 
@@ -34,7 +36,7 @@ function IndividualCard({id, image, name, year, description, handleDeleteCard, h
                 <p><b>Description: </b>{description}</p>
                 <p><button id={id} onClick={handleDeleteClick} className="emoji-button delete" >🗑</button></p>
                 <button id={id} onClick={(e) => showEditCard(e)}>Edit</button>
-                {showEdit === true ? <EditCard card={card} handleEdittedCard={handleEdittedCard} /> : "" }
+                {showEdit === true ? <EditCard card={card} handleEdittedCard={handleEdittedCard} showEditCard={showEditCard}/> : "" }
             </div>
         </div>
     )
