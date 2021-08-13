@@ -1,6 +1,7 @@
 
 import {useState} from "react"
 
+
 function EditCard({card, handleEdittedCard, showEditCard}) {
     const {id, image, name, year, description, collection} = card
 
@@ -42,14 +43,22 @@ function EditCard({card, handleEdittedCard, showEditCard}) {
         showEditCard()
         
     }
+
+    function cancelOnClick() {
+        showEditCard()
+    }
     
     
     return (
-      <div className="card-display">
+
+        <div className="edit-card-display">
+
+            <div className="edit-card-display-inner">
+
 
             <form onSubmit={handleSubmit}>
                 <p>
-                edit card
+                <button onClick={cancelOnClick}>Cancel</button>
                 </p>
                 <p>
                 <input type="text" className="input-field" name="name" onChange={handleChange} placeholder={name}/>
@@ -71,8 +80,9 @@ function EditCard({card, handleEdittedCard, showEditCard}) {
             </form>
          
 
-          
-      </div>
+            </div>
+        </div>
+
     );
   }
   

@@ -2,6 +2,7 @@
 import EditCard from "./EditCard"
 import {useState} from "react"
 
+
 function IndividualCard({id, image, name, year, description, handleDeleteCard, handleEdittedCard, card}) {
 
     const [showEdit, setShowEdit] = useState(false)
@@ -28,6 +29,7 @@ function IndividualCard({id, image, name, year, description, handleDeleteCard, h
     }
 
     return (
+
         <div>
             <div key={id} id={id}>
                 <img className="card-box" src={image} alt={image} />
@@ -35,10 +37,15 @@ function IndividualCard({id, image, name, year, description, handleDeleteCard, h
                 <p><b>Year: </b>{year}</p>
                 <p><b>Description: </b>{description}</p>
                 <p><button id={id} onClick={handleDeleteClick} className="emoji-button delete" >🗑</button></p>
+
                 <button id={id} onClick={(e) => showEditCard(e)}>Edit</button>
+
                 {showEdit === true ? <EditCard card={card} handleEdittedCard={handleEdittedCard} showEditCard={showEditCard}/> : "" }
+                
+
             </div>
         </div>
+
     )
 }
 
